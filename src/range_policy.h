@@ -3,7 +3,7 @@
 
 #include <cmath>
 
-class RANGE_POLICY_H
+class RangePolicy
 {
 public:
     RangePolicy(double h_st, double h_go, double v_max)
