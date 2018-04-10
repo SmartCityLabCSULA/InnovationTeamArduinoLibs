@@ -1,6 +1,6 @@
 #include "range_policy.h"
 
-RangePolicy::velocity(double headway)
+double RangePolicy::velocity(double headway)
 {
     if (0 <= headway && headway <= _h_stop)
     {
