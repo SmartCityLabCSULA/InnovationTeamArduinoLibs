@@ -15,4 +15,3 @@ RangePolicy::velocity(double headway)
         return _v_max;
     }
 }
-}
