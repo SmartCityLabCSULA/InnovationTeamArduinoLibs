@@ -21,19 +21,19 @@ public:
     double h_dot(double vel_1);
     double v_dot(double vel_1);
 
-    double velocity(double v);
+    double velocity(double h);
 
     double get_velocity();
-    void set_velocity();
+    void set_velocity(double v);
 
     double get_h_stop();
-    void set_h_stop();
+    void set_h_stop(double hstop);
 
     double get_h_go();
-    void set_h_go();
+    void set_h_go(double hgo);
 
     double get_vel_max();
-    void set_vel_max();
+    void set_vel_max(double vmax);
 
 private:
     RangePolicy range_policy_;
@@ -42,7 +42,7 @@ private:
     double _beta;
     double _headway;
     double _current_velocity;
-    double _previous_velocity;
+    // double _previous_velocity;
 };
 } // namespace control
 #endif // HUMAN_DRIVER_H
