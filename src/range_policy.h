@@ -5,31 +5,28 @@
 
 class RangePolicy
 {
-public:
+ public:
     RangePolicy(double h_st, double h_go, double v_max)
-        : _h_stop(h_st)
-        , _h_go(h_go)
-        , _v_max(v_max)
-        { _velocity = 0.0; }
-    double velocity(double v);
+        : h_stop_(h_st)
+        , h_go_(h_go)
+        , v_max_(v_max)
+        { }
 
-    double get_velocity();
-    void set_velocity();
+    double velocity(double h);
 
     double get_h_stop();
-    void set_h_stop();
+    void set_h_stop(double hst);
 
     double get_h_go();
-    void set_h_go();
+    void set_h_go(double hgo);
 
     double get_vel_max();
-    void set_vel_max();
+    void set_vel_max(double vmax);
 
-private:
-    double _h_stop;
-    double _h_go;
-    double _v_max;
-    double _velocity;
+ private:
+    double h_stop_;
+    double h_go_;
+    double v_max_;
 };
 
 #endif // RANGE_POLICY_H

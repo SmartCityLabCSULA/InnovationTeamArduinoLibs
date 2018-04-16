@@ -1,62 +1,40 @@
 #include "range_policy.h"
 
-double RangePolicy::velocity(double headway)
-{
-    if (0 <= headway && headway <= _h_stop)
+double RangePolicy::velocity(double headway) {
+    if (0 <= headway && headway <= h_stop_)
     {
         return 0;
     }
-    else if (_h_stop < headway && headway < _h_go)
+    else if (h_stop_ < headway && headway < h_go_)
     {
-        return _v_max / 2 * (1 - cos(M_PI * (headway - _h_stop)/(_h_go - _h_stop)));
+        return v_max_ / 2 * (1 - cos(M_PI * (headway - h_stop_)/(h_go_ - h_stop_)));
     }
     else
     {
-        return _v_max;
+        return v_max_;
     }
 }
 
-double RangePolicy::velocity(double v)
-{
-
+double RangePolicy::get_h_stop() {
+    return h_stop_;
 }
 
-double RangePolicy::get_velocity()
-{
-
+void RangePolicy::set_h_stop(double hst) {
+    h_stop_ = hst;
 }
 
-void RangePolicy::set_velocity()
-{
-
+double RangePolicy::get_h_go() {
+    return h_go_;
 }
 
-double RangePolicy::get_h_stop()
-{
-
+void RangePolicy::set_h_go(double hgo) {
+    h_go_ = hgo;
 }
 
-void RangePolicy::set_h_stop()
-{
-
+double RangePolicy::get_vel_max() {
+    return v_max_;
 }
 
-double RangePolicy::get_h_go()
-{
-
-}
-
-void RangePolicy::set_h_go()
-{
-
-}
-
-double RangePolicy::get_vel_max()
-{
-
-}
-
-void RangePolicy::set_vel_max()
-{
-
+void RangePolicy::set_vel_max(double vmax) {
+    v_max_ = vmax;
 }

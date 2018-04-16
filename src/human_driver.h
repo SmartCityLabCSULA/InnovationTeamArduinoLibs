@@ -7,19 +7,21 @@
 
 #include "range_policy.h"
 
-namespace control{
+namespace control {
 
-class HumanDriver
-{
-public:
+class HumanDriver {
+ public:
     HumanDriver(double vmax, double hst, double hgo, double alpha, double beta)
-        : _alpha(alpha)
-        , _beta(beta)
-        , range_policy_(hgo, hst, vmax)
-        {}
+        : range_policy_(hst, hgo, vmax)
+        , alpha_(alpha)
+        , beta_(beta)
+        {
+            current_velocity_ = 0.0;
+            previous_velocity_ = 0.0;
+        }
 
     double h_dot(double vel_1);
-    double v_dot(double vel_1);
+    double v_dot(double vel_1, double headway);
 
     double velocity(double h);
 
@@ -35,14 +37,14 @@ public:
     double get_vel_max();
     void set_vel_max(double vmax);
 
-private:
+ private:
     RangePolicy range_policy_;
 
-    double _alpha;
-    double _beta;
-    double _headway;
-    double _current_velocity;
-    // double _previous_velocity;
+    double alpha_;
+    double beta_;
+    double headway_;
+    double current_velocity_;
+    double previous_velocity_;
 };
 } // namespace control
 #endif // HUMAN_DRIVER_H
