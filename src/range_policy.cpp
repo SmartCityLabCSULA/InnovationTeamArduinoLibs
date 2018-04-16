@@ -1,16 +1,13 @@
 #include "range_policy.h"
 
 double RangePolicy::velocity(double headway) {
-    if (0 <= headway && headway <= h_stop_)
-    {
+    if (0 <= headway && headway <= h_stop_) {
         return 0;
     }
-    else if (h_stop_ < headway && headway < h_go_)
-    {
+    else if (h_stop_ < headway && headway < h_go_) {
         return v_max_ / 2 * (1 - cos(M_PI * (headway - h_stop_)/(h_go_ - h_stop_)));
     }
-    else
-    {
+    else {
         return v_max_;
     }
 }
